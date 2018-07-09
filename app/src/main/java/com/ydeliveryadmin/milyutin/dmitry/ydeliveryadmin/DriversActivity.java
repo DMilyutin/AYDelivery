@@ -1,5 +1,6 @@
 package com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -69,9 +70,17 @@ public class DriversActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id){
-            case R.id.addItem :{}//открыть окно регистрации водителя
+            case R.id.addItem :{
+                Intent intent = new Intent(DriversActivity.this ,AddDriverActivity.class );
+                startActivity(intent);
+            }
         }
         return true;
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        getOllDriver();
+    }
 }

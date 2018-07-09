@@ -60,6 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edLogin" />
 
     <ProgressBar
+        android:visibility="invisible"
         android:id="@+id/prBarLogin"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"

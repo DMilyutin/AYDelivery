@@ -11,6 +11,7 @@ import android.widget.Adapter;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin.Helper.AdapterCustomerActivity;
@@ -34,12 +35,15 @@ public class CustomersActivity extends AppCompatActivity {
     private AdapterCustomerActivity adapterCustomerActivity;
     private Adapter adapterT;
 
+    private ProgressBar prBarCustomer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customers);
 
         customersList = findViewById(R.id.customersList);
+        prBarCustomer = findViewById(R.id.prBarCustomerActivity);
 
         getOllDrivers();
 
@@ -97,6 +101,7 @@ public class CustomersActivity extends AppCompatActivity {
         builder.setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                prBarCustomer.setVisibility(ProgressBar.VISIBLE);
                 String name = edNameCustomer.getText().toString();
                 String address = edAddressCustomer.getText().toString();
                 String phone = edPhoneCustomer.getText().toString();
@@ -191,12 +196,14 @@ public class CustomersActivity extends AppCompatActivity {
                         document.saveDocument(new CallbackDocumentSaved() {
                             @Override
                             public void onDocumentSaved() {
+                                prBarCustomer.setVisibility(ProgressBar.INVISIBLE);
                                 Toast.makeText(CustomersActivity.this, "Заказчик успешно добавлен"
                                         ,Toast.LENGTH_LONG).show();
                             }
 
                             @Override
                             public void onDocumentSaveFailed(String errorCode, String errorMessage) {
+                                prBarCustomer.setVisibility(ProgressBar.INVISIBLE);
                                 Toast.makeText(CustomersActivity.this, "Ошибка: " + errorMessage
                                         ,Toast.LENGTH_LONG).show();
                             }

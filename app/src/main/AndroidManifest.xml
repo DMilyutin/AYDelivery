@@ -21,12 +21,17 @@
         <activity
             android:name=".MainActivity"
             android:label="Админка" />
-        <activity android:name=".DriversActivity"
-            android:label="Курьеры"/>
-        <activity android:name=".CustomersActivity"
-            android:label="Заказчики"/>
-        <activity android:name=".OrdersActivity"
-            android:label="Заказы"/>
+        <activity
+            android:name=".DriversActivity"
+            android:label="Курьеры" />
+        <activity
+            android:name=".CustomersActivity"
+            android:label="Заказчики" />
+        <activity
+            android:name=".OrdersActivity"
+            android:label="Заказы" />
+        <activity android:name=".AddDriverActivity"
+            android:label="Регистрация курьера"/>
     </application>
 
 </manifest>

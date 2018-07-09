@@ -32,7 +32,8 @@ public class LoginActivity extends AppCompatActivity {
 
         edLogin = findViewById(R.id.edLogin);
         btLogin = findViewById(R.id.btLobin);
-        //prBarLogin = findViewById(R.id.prBarLogin);
+        prBarLogin = findViewById(R.id.prBarLogin);
+
 
         ScorocodeSdk.initWith(APPLICATION_ID, CLIENT_KEY,MASTER_KEY,
                 null,null,null,null);
@@ -41,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 btLogin.setClickable(false);
+                prBarLogin.setVisibility(ProgressBar.VISIBLE);
                 checkLogin();
 
 
@@ -58,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         user.login(textLogin, pass, new CallbackLoginUser() {
             @Override
             public void onLoginSucceed(ResponseLogin responseLogin) {
+                prBarLogin.setVisibility(ProgressBar.INVISIBLE);
                 Boolean admin = responseLogin.getResult().getUserInfo().getBoolean("Admin");
                 if (admin){
                 btLogin.setClickable(true);
@@ -69,7 +72,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onLoginFailed(String errorCode, String errorMessage) {
-
+                prBarLogin.setVisibility(ProgressBar.INVISIBLE);
                 Toast.makeText(LoginActivity.this, "Неверный номер", Toast.LENGTH_SHORT).show();
                 btLogin.setClickable(true);
             }
