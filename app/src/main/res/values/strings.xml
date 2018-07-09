@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">YDeliveryAdmin</string>
+    <string name="bt_driver">Водители</string>
+    <string name="bt_customer">Заказчики</string>
+    <string name="bt_order">Заказы</string>
+    <string name="tv_LoginActivityLogin">Номер телефона</string>
+    <string name="btLoginActivityPass">Войти</string>
+</resources>
