@@ -30,8 +30,10 @@
         <activity
             android:name=".OrdersActivity"
             android:label="Заказы" />
-        <activity android:name=".AddDriverActivity"
-            android:label="Регистрация курьера"/>
+        <activity
+            android:name=".AddDriverActivity"
+            android:label="Регистрация курьера" />
+        <activity android:name=".Helper.DetailOrderActivity"></activity>
     </application>
 
 </manifest>

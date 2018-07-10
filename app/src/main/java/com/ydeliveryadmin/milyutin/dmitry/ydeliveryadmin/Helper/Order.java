@@ -1,9 +1,14 @@
 package com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin.Helper;
 
-public class Order {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Order implements Parcelable {
 
 
     private String id;
+
+
 
     private String nameCustomer;
     private String addressCustomer;
@@ -29,6 +34,32 @@ public class Order {
         this.numberOfAddress = numberOfAddress;
         this.timeOrder = timeOrder;
     }
+
+    protected Order(Parcel in) {
+        id = in.readString();
+        nameCustomer = in.readString();
+        addressCustomer = in.readString();
+        nameDriver = in.readString();
+        lastNameDriver = in.readString();
+        coastOrder = in.readString();
+        numberOfAddress = in.readString();
+        addressForDriver = in.readString();
+        namesForDriver = in.readString();
+        phonesForDriver = in.readString();
+        timeOrder = in.readString();
+    }
+
+    public static final Creator<Order> CREATOR = new Creator<Order>() {
+        @Override
+        public Order createFromParcel(Parcel in) {
+            return new Order(in);
+        }
+
+        @Override
+        public Order[] newArray(int size) {
+            return new Order[size];
+        }
+    };
 
     public String getId() {
         return id;
@@ -72,5 +103,32 @@ public class Order {
 
     public String getTimeOrder() {
         return timeOrder;
+    }
+
+    public void setAddressForDriver(String addressForDriver) { this.addressForDriver = addressForDriver; }
+
+    public void setNamesForDriver(String namesForDriver) { this.namesForDriver = namesForDriver; }
+
+    public void setPhonesForDriver(String phonesForDriver) { this.phonesForDriver = phonesForDriver; }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(id);
+        parcel.writeString(nameCustomer);
+        parcel.writeString(addressCustomer);
+        parcel.writeString(nameDriver);
+        parcel.writeString(lastNameDriver);
+        parcel.writeString(coastOrder);
+        parcel.writeString(numberOfAddress);
+        parcel.writeString(addressForDriver);
+        parcel.writeString(namesForDriver);
+        parcel.writeString(phonesForDriver);
+        parcel.writeString(timeOrder);
     }
 }

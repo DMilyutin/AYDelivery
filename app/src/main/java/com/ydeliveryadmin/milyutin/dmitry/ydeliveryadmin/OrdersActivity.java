@@ -1,13 +1,19 @@
 package com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin;
 
+import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin.Helper.AdapterOrderActivity;
+import com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin.Helper.DetailOrderActivity;
+import com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin.Helper.Order;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +40,22 @@ public class OrdersActivity extends AppCompatActivity {
         ordersList = findViewById(R.id.ordersList);
         getOllOrders();
 
+
+        ordersList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Order order = adapterOrderActivity.newOrder(i);
+                startDetailOrder(order);
+            }
+        });
+    }
+
+    private void startDetailOrder(Order order) {
+        Intent intent = new Intent(OrdersActivity.this, DetailOrderActivity.class);
+
+
+        intent.putExtra("Order",  order);
+        startActivity(intent);
     }
 
 
