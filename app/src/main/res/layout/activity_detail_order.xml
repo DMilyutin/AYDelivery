@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".Helper.DetailOrderActivity">
+    tools:context=".DetailOrderActivity">
 
     <TextView
         android:id="@+id/tvDetailOrderNameCustomer"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/tvDetailOrderAddressCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -47,10 +47,10 @@
         android:textColor="@color/colorText"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailOrderAddressCustomer" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/tvDetailOrderMuchAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -60,18 +60,18 @@
         android:textColor="@color/colorText"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailOrderAddressCustomer" />
 
     <ListView
+        android:id="@+id/lvDetailOrderListCusters"
         android:layout_width="match_parent"
-        android:layout_height="485dp"
+        android:layout_height="474dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintBottom_toTopOf="@+id/btDetailOrderActivityTakeOrder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <Button
         android:id="@+id/btDetailOrderActivityTakeOrder"
@@ -91,13 +91,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ivDetailOrderLocationCustomer"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginLeft="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintStart_toEndOf="@+id/tvDetailOrderAddressCustomer"
         app:layout_constraintTop_toBottomOf="@+id/tvDetailOrderNameCustomer"
         app:srcCompat="@drawable/ic_location_on_red_24dp" />
 </android.support.constraint.ConstraintLayout>

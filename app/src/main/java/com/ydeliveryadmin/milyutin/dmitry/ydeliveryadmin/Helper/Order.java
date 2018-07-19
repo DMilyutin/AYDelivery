@@ -7,23 +7,17 @@ public class Order implements Parcelable {
 
 
     private String id;
-
-
-
     private String nameCustomer;
     private String addressCustomer;
-
     private String nameDriver;
     private String lastNameDriver;
-
     private String coastOrder;
     private String numberOfAddress;
-
     private String addressForDriver;
     private String namesForDriver;
     private String phonesForDriver;
-
     private String timeOrder;
+    private String orderStatus;
 
     public Order(String id, String nameCustomer, String addressCustomer,
                   String coastOrder, String numberOfAddress, String timeOrder) {
@@ -47,6 +41,7 @@ public class Order implements Parcelable {
         namesForDriver = in.readString();
         phonesForDriver = in.readString();
         timeOrder = in.readString();
+        orderStatus = in.readString();
     }
 
     public static final Creator<Order> CREATOR = new Creator<Order>() {
@@ -111,6 +106,9 @@ public class Order implements Parcelable {
 
     public void setPhonesForDriver(String phonesForDriver) { this.phonesForDriver = phonesForDriver; }
 
+    public String getOrderStatus() { return orderStatus; }
+
+    public void setOrderStatus(String orderStatus) { this.orderStatus = orderStatus; }
 
     @Override
     public int describeContents() {
@@ -130,5 +128,7 @@ public class Order implements Parcelable {
         parcel.writeString(namesForDriver);
         parcel.writeString(phonesForDriver);
         parcel.writeString(timeOrder);
+        parcel.writeString(orderStatus);
+
     }
 }

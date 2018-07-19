@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-
+        android:text=""
         android:id="@+id/edLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
         android:duplicateParentState="false"
         android:text="@string/btLoginActivityPass"
         android:textColor="#080068"
-        android:textSize="30sp"
+        android:textSize="33sp"
         app:layout_constraintStart_toEndOf="@+id/prBarLogin"
         app:layout_constraintTop_toBottomOf="@+id/edLogin" />
 

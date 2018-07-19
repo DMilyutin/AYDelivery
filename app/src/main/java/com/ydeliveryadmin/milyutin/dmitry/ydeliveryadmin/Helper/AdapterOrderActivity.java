@@ -47,11 +47,15 @@ public class AdapterOrderActivity extends BaseAdapter {
         View view = view1;
         if(view == null){view = inflater.inflate(R.layout.for_adapter_order, viewGroup, false);}
 
-        String status = list.get(i).getFields().get("statusOrder").toString();
 
-        int res = statusOrder(status);
+
+
 
         Order orderForList = newOrder(i);
+
+        //String status = list.get(i).getFields().get("statusOrder").toString();
+        String status = orderForList.getOrderStatus();
+        int res = statusOrder(status);
 
         ((TextView) view.findViewById(R.id.tvAdapterOrderNameCustomer)).setText(orderForList.getNameCustomer());
         ((TextView) view.findViewById(R.id.tvAdapterOrderMuchAddress)).setText(orderForList.getNumberOfAddress());
@@ -97,6 +101,11 @@ public class AdapterOrderActivity extends BaseAdapter {
                 list.get(poss).getFields().get("coastOrder").toString(),
                 list.get(poss).getFields().get("numberOfAddresses").toString(),
                 dat);
+
+        order.setAddressForDriver(list.get(poss).getFields().get("addressForDriver").toString());
+        order.setPhonesForDriver(list.get(poss).getFields().get("phoneForDriver").toString());
+        order.setNamesForDriver(list.get(poss).getFields().get("nameForDriver").toString());
+        order.setOrderStatus(list.get(poss).getFields().get("statusOrder").toString());
         return order;
     }
 
