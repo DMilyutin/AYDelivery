@@ -80,9 +80,28 @@ public class OrdersActivity extends AppCompatActivity {
         query.findDocuments(new CallbackFindDocument() {
             @Override
             public void onDocumentFound(List<DocumentInfo> documentInfos) {
-               setAdapter(documentInfos);
-               //notifyl();
-                //not2();
+               getDriverss(documentInfos);
+
+            }
+
+            @Override
+            public void onDocumentNotFound(String errorCode, String errorMessage) {
+                ordersList.setAdapter((ListAdapter) adapterT);
+                Toast.makeText(OrdersActivity.this, "Скорее всего ошибка! Сообщи об этом!!!"
+                        ,Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+
+
+    private void getDriverss(List<DocumentInfo> dInfosOrder){
+        Query query = new Query("drivers_balashiha");
+        query.findDocuments(new CallbackFindDocument() {
+            @Override
+            public void onDocumentFound(List<DocumentInfo> documentInfos) {
+                setAdapter(dInfosOrder, documentInfos);
+
             }
 
             @Override
@@ -99,17 +118,17 @@ public class OrdersActivity extends AppCompatActivity {
         return this;
     }
 
-    private void setAdapter(List<DocumentInfo> documentInfos) {
+    private void setAdapter(List<DocumentInfo> dInfosOrders, List<DocumentInfo> dInfosDriver) {
         List<DocumentInfo> dock = new ArrayList<>();
 
-        int z = documentInfos.size()-1;
+        int z = dInfosOrders.size()-1;
         for(int i = 0; i<= z; i++){
-            if((documentInfos.get(i).getFields().get("statusOrder").toString()).equals("Поиск курьера"))
+            if((dInfosOrders.get(i).getFields().get("statusOrder").toString()).equals("Поиск курьера"))
                 not2();
-            dock.add(i, documentInfos.get(z-i));
+            dock.add(i, dInfosOrders.get(z-i));
 
         }
-        adapterOrderActivity = new AdapterOrderActivity(this, dock);
+        adapterOrderActivity = new AdapterOrderActivity(this, dock, dInfosDriver);
         ordersList.setAdapter(adapterOrderActivity);
     }
 

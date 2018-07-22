@@ -3,8 +3,7 @@
     package="com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
-
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -35,8 +34,10 @@
         <activity
             android:name=".AddDriverActivity"
             android:label="Регистрация курьера" />
-        <activity android:name=".DetailOrderActivity"
-            android:label="Детали заказа"/>
+        <activity
+            android:name=".DetailOrderActivity"
+            android:label="Детали заказа" />
+        <activity android:name=".ReplenishBalanceActivity"></activity>
     </application>
 
 </manifest>

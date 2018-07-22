@@ -5,7 +5,6 @@ import android.os.Parcelable;
 
 public class Order implements Parcelable {
 
-
     private String id;
     private String nameCustomer;
     private String addressCustomer;
@@ -18,6 +17,7 @@ public class Order implements Parcelable {
     private String phonesForDriver;
     private String timeOrder;
     private String orderStatus;
+    private String idDriver;
 
     public Order(String id, String nameCustomer, String addressCustomer,
                   String coastOrder, String numberOfAddress, String timeOrder) {
@@ -75,6 +75,22 @@ public class Order implements Parcelable {
     public String getLastNameDriver() {
         return lastNameDriver;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setNameDriver(String nameDriver) {
+        this.nameDriver = nameDriver;
+    }
+
+    public void setLastNameDriver(String lastNameDriver) {
+        this.lastNameDriver = lastNameDriver;
+    }
+
+    public String getIdDriver() { return idDriver; }
+
+    public void setIdDriver(String idDriver) { this.idDriver = idDriver; }
 
     public String getCoastOrder() {
         return coastOrder;

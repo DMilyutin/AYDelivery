@@ -71,7 +71,8 @@ public class AddDriverActivity extends AppCompatActivity {
         document.setField("carDriver", car);
         document.setField("carNumber", carNumber);
         document.setField("passportDriver", passport);
-        document.setField("balanceDriver", 20);
+        document.setField("balanceDriver", 0);
+        document.setField("statusWork", false);
 
         document.saveDocument(new CallbackDocumentSaved() {
             @Override

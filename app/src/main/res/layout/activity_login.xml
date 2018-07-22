@@ -16,7 +16,7 @@
         android:layout_marginBottom="200dp"
         android:text="@string/tv_LoginActivityLogin"
         android:textColor="@color/colorText"
-        android:textSize="45sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:text=""
+        android:text="89251459197"
         android:id="@+id/edLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:inputType="phone"
         android:textAlignment="center"
         android:textColor="@color/colorText"
-        android:textSize="35sp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -46,7 +46,7 @@
     <Button
 
         android:id="@+id/btLobin"
-        android:layout_width="221dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginStart="32dp"
@@ -55,24 +55,24 @@
         android:duplicateParentState="false"
         android:text="@string/btLoginActivityPass"
         android:textColor="#080068"
-        android:textSize="33sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/prBarLogin"
         app:layout_constraintTop_toBottomOf="@+id/edLogin" />
 
     <ProgressBar
-        android:visibility="invisible"
         android:id="@+id/prBarLogin"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="70dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edLogin" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -41,21 +41,22 @@ public class CustomersActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customers);
+        //prBarCustomer.setVisibility(ProgressBar.VISIBLE);
 
         customersList = findViewById(R.id.customersList);
         prBarCustomer = findViewById(R.id.prBarCustomerActivity);
 
-        getOllDrivers();
+        getOllCustomers();
 
     }
 
 
-    private void getOllDrivers(){
+    private void getOllCustomers(){
         Query query = new Query(COLLECTION_CUSTOMER_BALASHIHA);
         query.findDocuments(new CallbackFindDocument() {
             @Override
             public void onDocumentFound(List<DocumentInfo> documentInfos) {
-                setAdapter(documentInfos);
+                getOllBalance(documentInfos);
             }
 
             @Override
@@ -67,9 +68,29 @@ public class CustomersActivity extends AppCompatActivity {
         });
     }
 
-    private void setAdapter(List<DocumentInfo> documentInfos) {
-        adapterCustomerActivity = new AdapterCustomerActivity(this, documentInfos);
+
+    private  void getOllBalance(List<DocumentInfo> dInfosCustomer){
+        Query query = new Query("users");
+        query.findDocuments(new CallbackFindDocument() {
+            @Override
+            public void onDocumentFound(List<DocumentInfo> documentInfos) {
+               setAdapter(dInfosCustomer, documentInfos);
+            }
+
+            @Override
+            public void onDocumentNotFound(String errorCode, String errorMessage) {
+                customersList.setAdapter((ListAdapter) adapterT);
+                Toast.makeText(CustomersActivity.this, "Скорее всего ошибка! Сообщи об этом!!!"
+                        ,Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+
+    private void setAdapter(List<DocumentInfo> dInfosCustomer, List<DocumentInfo> dInfosBalance) {
+        adapterCustomerActivity = new AdapterCustomerActivity(this, dInfosCustomer, dInfosBalance);
         customersList.setAdapter(adapterCustomerActivity);
+        prBarCustomer.setVisibility(ProgressBar.INVISIBLE);
     }
 
 

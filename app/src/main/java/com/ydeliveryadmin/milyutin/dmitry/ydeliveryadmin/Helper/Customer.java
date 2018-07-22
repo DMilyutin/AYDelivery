@@ -6,6 +6,9 @@ public class Customer {
     private String nameCustomer;
     private String addressCustomer;
     private String phoneCustomer;
+    private String balanceCustomer;
+
+    public Customer(){}
 
     public Customer(String _id, String nameCustomer, String addressCustomer, String phoneCustomer) {
         this._id = _id;
@@ -18,6 +21,8 @@ public class Customer {
         return _id;
     }
 
+    public void set_id(String _id) { this._id = _id; }
+
     public String getNameCustomer() {
         return nameCustomer;
     }
@@ -29,4 +34,10 @@ public class Customer {
     public String getPhoneCustomer() {
         return phoneCustomer;
     }
+
+    public void setPhoneCustomer(String phoneCustomer) { this.phoneCustomer = phoneCustomer; }
+
+    public String getBalanceCustomer() { return balanceCustomer; }
+
+    public void setBalanceCustomer(String balanceCustomer) { this.balanceCustomer = balanceCustomer; }
 }

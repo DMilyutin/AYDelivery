@@ -17,7 +17,7 @@
         android:layout_marginTop="8dp"
         android:text="Организация"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="33sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,7 +30,7 @@
         android:layout_marginTop="8dp"
         android:text="Когда"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="33sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/tvAdapterOrderMuchAddress"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,7 +44,7 @@
         android:layout_marginTop="8dp"
         android:text="Фамилия"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="33sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/tvAdapterOrderNameCustomer"
@@ -60,7 +60,7 @@
         android:layout_marginTop="8dp"
         android:text="Имя"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="33sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvAdapterOrderLastNameDriver"
         app:layout_constraintTop_toBottomOf="@+id/tvAdapterOrderTimeOrder"
@@ -75,7 +75,7 @@
         android:layout_marginTop="8dp"
         android:text="7"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="33sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,7 +88,7 @@
         android:layout_marginTop="8dp"
         android:text="Адресов"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="33sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/tvAdapterOrderNameCustomer"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -102,15 +102,15 @@
         android:layout_marginTop="8dp"
         android:text="Курьер"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="33sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAdapterOrderNameCustomer" />
 
     <ImageView
         android:id="@+id/ivAdapterOrderStatusOrder"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
@@ -130,7 +130,7 @@
         android:layout_marginTop="8dp"
         android:text="Р"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="33sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ivAdapterOrderStatusOrder"
         app:layout_constraintTop_toTopOf="parent" />
@@ -145,7 +145,7 @@
         android:layout_marginTop="8dp"
         android:text="300"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="33sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent"

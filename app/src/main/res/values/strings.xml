@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">YouDeliveryAdmin</string>
+    <string name="app_name">YouDelivery Admin</string>
     <string name="bt_driver">Водители</string>
     <string name="bt_customer">Заказчики</string>
     <string name="bt_order">Заказы</string>

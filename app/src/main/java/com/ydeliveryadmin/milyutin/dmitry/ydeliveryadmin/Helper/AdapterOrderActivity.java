@@ -1,17 +1,13 @@
 package com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin.Helper;
 
 import android.content.Context;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin.CustomersActivity;
-import com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin.OrdersActivity;
 import com.ydeliveryadmin.milyutin.dmitry.ydeliveryadmin.R;
 
 import java.text.SimpleDateFormat;
@@ -24,19 +20,21 @@ public class AdapterOrderActivity extends BaseAdapter {
     private SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 
     private LayoutInflater inflater;
-    private List<DocumentInfo> list;
+    private List<DocumentInfo> listOrders;
+    private List<DocumentInfo> listDriver;
 
-    public AdapterOrderActivity(Context context, List<DocumentInfo> list){
-        this.list = list;
+    public AdapterOrderActivity(Context context, List<DocumentInfo> list1,List<DocumentInfo> list2 ){
+        this.listOrders = list1;
+        listDriver = list2;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
 
     @Override
-    public int getCount() {return list.size(); }
+    public int getCount() {return listOrders.size(); }
 
     @Override
-    public Object getItem(int position) {return list.get(position); }
+    public Object getItem(int position) {return listOrders.get(position); }
 
     @Override
     public long getItemId(int position) {return position; }
@@ -53,7 +51,7 @@ public class AdapterOrderActivity extends BaseAdapter {
 
         Order orderForList = newOrder(i);
 
-        //String status = list.get(i).getFields().get("statusOrder").toString();
+        //String status = listOrders.get(i).getFields().get("statusOrder").toString();
         String status = orderForList.getOrderStatus();
         int res = statusOrder(status);
 
@@ -61,6 +59,9 @@ public class AdapterOrderActivity extends BaseAdapter {
         ((TextView) view.findViewById(R.id.tvAdapterOrderMuchAddress)).setText(orderForList.getNumberOfAddress());
         ((TextView) view.findViewById(R.id.tvAdapterOrderTimeOrder)).setText(orderForList.getTimeOrder());
         ((TextView) view.findViewById(R.id.tvAdapterOrderCoastOrder)).setText(orderForList.getCoastOrder());
+        ((TextView) view.findViewById(R.id.tvAdapterOrderLastNameDriver)).setText(orderForList.getLastNameDriver());
+        ((TextView) view.findViewById(R.id.tvAdapterOrderNameDriver)).setText(orderForList.getNameDriver());
+
         ((ImageView) view.findViewById(R.id.ivAdapterOrderStatusOrder))
                     .setImageResource(res);
 
@@ -93,20 +94,40 @@ public class AdapterOrderActivity extends BaseAdapter {
     }
 
     public Order newOrder(int poss){                                        //Todo дописать!
-        String dat = format.format(list.get(poss).getDate("createdAt"));
+        String dat = format.format(listOrders.get(poss).getDate("createdAt"));
 
-        Order order = new Order(list.get(poss).getId(),
-                list.get(poss).getFields().get("nameCustomer").toString(),
-                list.get(poss).getFields().get("addressCustomer").toString(),
-                list.get(poss).getFields().get("coastOrder").toString(),
-                list.get(poss).getFields().get("numberOfAddresses").toString(),
+        Order order = new Order(listOrders.get(poss).getId(),
+                listOrders.get(poss).getFields().get("nameCustomer").toString(),
+                listOrders.get(poss).getFields().get("addressCustomer").toString(),
+                listOrders.get(poss).getFields().get("coastOrder").toString(),
+                listOrders.get(poss).getFields().get("numberOfAddresses").toString(),
                 dat);
 
-        order.setAddressForDriver(list.get(poss).getFields().get("addressForDriver").toString());
-        order.setPhonesForDriver(list.get(poss).getFields().get("phoneForDriver").toString());
-        order.setNamesForDriver(list.get(poss).getFields().get("nameForDriver").toString());
-        order.setOrderStatus(list.get(poss).getFields().get("statusOrder").toString());
+        order.setAddressForDriver(listOrders.get(poss).getFields().get("addressForDriver").toString());
+        order.setPhonesForDriver(listOrders.get(poss).getFields().get("phoneForDriver").toString());
+        order.setNamesForDriver(listOrders.get(poss).getFields().get("nameForDriver").toString());
+        order.setOrderStatus(listOrders.get(poss).getFields().get("statusOrder").toString());
+
+        DocumentInfo d = driverNameEndLastName(listOrders.get(poss).getFields().get("idDriver").toString());
+        if(d  != null) {
+            order.setNameDriver(d.get("nameDriver").toString());
+            order.setLastNameDriver(d.get("lastNameDriver").toString());
+        }
+        else {
+            order.setNameDriver("Ошибка");
+            order.setLastNameDriver("Ошибка");
+        }
         return order;
     }
 
-}
+    private DocumentInfo driverNameEndLastName(String idDriver){
+        for (int i = 0; i < listDriver.size(); i++){
+            DocumentInfo d  = listDriver.get(i);
+            if(d.getId().equals(idDriver)){
+                return d;
+            }
+        }
+        return null;
+    }
+    }
+

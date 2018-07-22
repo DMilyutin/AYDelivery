@@ -8,22 +8,20 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private Button btCustomers;
-    private Button btDrivers;
-    private Button btOrders;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button btCustomers;
+        Button btDrivers;
+        Button btOrders;
+        Button btReplenishBalance;
+
         btCustomers =  findViewById(R.id.btCustomers);
         btDrivers =  findViewById(R.id.btDrivers);
         btOrders =  findViewById(R.id.btOrders);
-
+        btReplenishBalance =  findViewById(R.id.btReplenishBalance);
 
 
         btCustomers.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +46,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentOrder = new Intent(MainActivity.this, OrdersActivity.class);
                 startActivity(intentOrder);
+            }
+        });
+
+        btReplenishBalance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentRepl = new Intent(MainActivity.this, ReplenishBalanceActivity.class);
+                startActivity(intentRepl);
             }
         });
     }
